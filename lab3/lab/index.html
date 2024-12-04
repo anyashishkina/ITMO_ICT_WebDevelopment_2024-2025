@@ -489,17 +489,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#31" class="md-nav__link">
     <span class="md-ellipsis">
-      Порядок выполнения работы.
+      Практическая работа 3.1
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Порядок выполнения работы.">
+    <nav class="md-nav" aria-label="Практическая работа 3.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запросы:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практическая работа 3.2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Практическая работа 3.2">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Реализовать ендпоинты для добавления и просмотра скилов методом, описанным в пункте выше.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вариант №3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Вариант №3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       Эндпоинты:
     </span>
@@ -513,7 +561,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       Запуск сайта
     </span>
@@ -564,17 +612,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#31" class="md-nav__link">
     <span class="md-ellipsis">
-      Порядок выполнения работы.
+      Практическая работа 3.1
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Порядок выполнения работы.">
+    <nav class="md-nav" aria-label="Практическая работа 3.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запросы:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практическая работа 3.2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Практическая работа 3.2">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Реализовать ендпоинты для добавления и просмотра скилов методом, описанным в пункте выше.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вариант №3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Вариант №3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       Эндпоинты:
     </span>
@@ -588,7 +684,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       Запуск сайта
     </span>
@@ -613,9 +709,10 @@
 
 <h1 id="_1">Задание</h1>
 <p>Реализация серверной части приложения средствами django и djangorestframework в соответствии с заданием</p>
-<h2 id="_2">Порядок выполнения работы.</h2>
-<p>1) Практическая работа 3.1
-- Запрос на создание 6-7 новых автовладельцев и 5-6 автомобилей</p>
+<h2 id="31">Практическая работа 3.1</h2>
+<ul>
+<li>Запрос на создание 6-7 новых автовладельцев и 5-6 автомобилей</li>
+</ul>
 <pre><code class="language-python">owners = [
 Owner.objects.create(last_name=&quot;Иванов&quot;, first_name=&quot;Иван&quot;, date_of_birth=&quot;1985-06-15&quot;),
 Owner.objects.create(last_name=&quot;Петров&quot;, first_name=&quot;Петр&quot;, date_of_birth=&quot;1990-09-20&quot;),
@@ -657,126 +754,77 @@ Ownership.objects.create(owner=owners[4], car=cars[1], beginning=&quot;2021-11-0
 Ownership.objects.create(owner=owners[4], car=cars[4], beginning=&quot;2022-12-01&quot;)
 Ownership.objects.create(owner=owners[5], car=cars[3], beginning=&quot;2020-10-01&quot;)
 </code></pre>
+<h3 id="_2">Запросы:</h3>
 <ul>
-<li>Написать следующие запросы на фильтрацию:</li>
-<li>Выведете все машины марки “Toyota” (или любой другой марки, которая у вас есть)
-    <code>python
-    Car.objects.filter(brand="Toyota")
-    &lt;QuerySet [&lt;Car: Toyota Camry (777)&gt;]&gt;</code><ul>
-<li>Найти всех водителей с именем “Олег” (или любым другим именем на ваше усмотрение)
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>Owner.objects.filter(first_name="Анна")
-<QuerySet [\<Owner: Шишкина Анна>]>
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>Взяв любого случайного владельца получить его id, и по этому id получить экземпляр удостоверения в виде объекта модели (можно в 2 запроса)
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>import random
-owner_id = random.choice(Owner.objects.all()).id
-License.objects.get(owner_id=owner_id)
-<License: Удостоверение 123 (B) - Иванов Иван></p>
-<p>```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>Вывести всех владельцев красных машин (или любого другого цвета, который у вас присутствует)
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>Owner.objects.filter(ownership__car__colour="Белый").distinct()
-<QuerySet [\<Owner: Иванов Иван>, \<Owner: Петров Петр>, \<Owner: Кузнецов Илья>]>
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>Найти всех владельцев, чей <a href="https://docs.djangoproject.com/en/3.2/ref/models/querysets/#year">год владения машиной</a> начинается с 2010 (или любой другой год, который присутствует у вас в базе)
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>Owner.objects.filter(ownership__beginning__year=2021).distinct()
-<QuerySet [\<Owner: Иванов Иван>, \<Owner: Смирнов Сергей>]>
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+<li>Выведете все машины марки “Toyota” (или любой другой марки, которая у вас есть)</li>
 </ul>
-</li>
-<li>
-<p>Необходимо реализовать следующие запросы c применением описанных методов</p>
+<pre><code class="language-python">Car.objects.filter(brand=&quot;Toyota&quot;)
+&lt;QuerySet [&lt;Car: Toyota Camry (777)&gt;]&gt; 
+</code></pre>
 <ul>
-<li>Вывод даты выдачи самого старшего водительского удостоверения
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>from django.db.models import Min
-License.objects.aggregate(oldest_date=Min('receiving_date'))
+<li>Найти всех водителей с именем “Олег” (или любым другим именем на ваше усмотрение)</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; Owner.objects.filter(first_name=&quot;Анна&quot;)
+&lt;QuerySet [&lt;Owner: Шишкина Анна&gt;]&gt;
+</code></pre>
+<ul>
+<li>Взяв любого случайного владельца получить его id, и по этому id получить экземпляр удостоверения в виде объекта модели (можно в 2 запроса)</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; import random
+&gt;&gt;&gt; owner_id = random.choice(Owner.objects.all()).id
+&gt;&gt;&gt; License.objects.get(owner_id=owner_id)
+&lt;License: Удостоверение 123 (B) - Иванов Иван&gt;
+&gt;&gt;&gt;
+</code></pre>
+<ul>
+<li>Вывести всех владельцев красных машин (или любого другого цвета, который у вас присутствует)</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt;Owner.objects.filter(ownership__car__colour=&quot;Белый&quot;).distinct()
+&lt;QuerySet [&lt;Owner: Иванов Иван&gt;, &lt;Owner: Петров Петр&gt;, &lt;Owner: Кузнецов Илья&gt;]&gt;
+</code></pre>
+<ul>
+<li>Найти всех владельцев, чей <a href="https://docs.djangoproject.com/en/3.2/ref/models/querysets/#year">год владения машиной</a> начинается с 2010 (или любой другой год, который присутствует у вас в базе)</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt;Owner.objects.filter(ownership__beginning__year=2021).distinct()
+&lt;QuerySet [&lt;Owner: Иванов Иван&gt;, &lt;Owner: Смирнов Сергей&gt;]&gt;
+</code></pre>
+<ul>
+<li>Вывод даты выдачи самого старшего водительского удостоверения</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; from django.db.models import Min
+&gt;&gt;&gt; License.objects.aggregate(oldest_date=Min('receiving_date'))
 {'oldest_date': datetime.date(2015, 5, 20)}
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>Укажите самую позднюю дату владения машиной, имеющую какую-то из существующих моделей в вашей базе
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>from django.db.models import Min
-License.objects.aggregate(Min('receiving_date'))
+</code></pre>
+<ul>
+<li>Укажите самую позднюю дату владения машиной, имеющую какую-то из существующих моделей в вашей базе</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; from django.db.models import Min
+&gt;&gt;&gt; License.objects.aggregate(Min('receiving_date'))
 {'receiving_date__min': datetime.date(2015, 5, 20)}
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>Выведите количество машин для каждого водителя
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>Owner.objects.values('first_name', 'last_name').annotate(Count('ownership__car'))
-<QuerySet [{'first_name': 'Анна', 'last_name': 'Шишкина', 'ownership__car__count': 2}, {'first_name': 'Иван', 'last_name': 'Иванов', 'ownership__car__count': 2}, {'first_name': 'Илья', 'last_name': 'Кузнецов', 'ownership__car__count': 2}, {'first_name': 'Петр', 'last_name': 'Петров', 'ownership__car__count': 1}, {'first_name': 'Сергей', 'last_name': 'Смирнов', 'ownership__car__count': 2}, {'first_name': 'Федор', 'last_name': 'Федоров', 'ownership__car__count': 1}]>
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>Подсчитайте количество машин каждой марки
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>Car.objects.values('brand').annotate(Count('id'))
-<QuerySet [{'brand': 'BMW', 'id__count': 1}, {'brand': 'Hyundai', 'id__count': 1}, {'brand': 'Kia', 'id__count': 1}, {'brand': 'Mercedes', 'id__count': 1}, {'brand': 'Toyota', 'id__count': 1}]>
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>Отсортируйте всех автовладельцев по дате выдачи удостоверения
-```python<blockquote>
-<blockquote>
-<blockquote>
-<p>Owner.objects.distinct().order_by('license__receiving_date')
-<QuerySet [\<Owner: Иванов Иван>, \<Owner: Петров Петр>, \<Owner: Шишкина Анна>, \<Owner: Кузнецов Илья>, \<Owner: Смирнов Сергей>, \<Owner: Федоров Федор>]>
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+</code></pre>
+<ul>
+<li>Выведите количество машин для каждого водителя</li>
 </ul>
-</li>
+<pre><code class="language-python">&gt;&gt;&gt; Owner.objects.values('first_name', 'last_name').annotate(Count('ownership__car'))
+&lt;QuerySet [{'first_name': 'Анна', 'last_name': 'Шишкина', 'ownership__car__count': 2}, {'first_name': 'Иван', 'last_name': 'Иванов', 'ownership__car__count': 2}, {'first_name': 'Илья', 'last_name': 'Кузнецов', 'ownership__car__count': 2}, {'first_name': 'Петр', 'last_name': 'Петров', 'ownership__car__count': 1}, {'first_name': 'Сергей', 'last_name': 'Смирнов', 'ownership__car__count': 2}, {'first_name': 'Федор', 'last_name': 'Федоров', 'ownership__car__count': 1}]&gt;
+</code></pre>
+<ul>
+<li>Подсчитайте количество машин каждой марки</li>
 </ul>
-<p>2) Практическая работа 3.2
-- Реализовать ендпоинты для добавления и просмотра скилов методом, описанным в пункте выше.</p>
-<p>Добавление скилов</p>
+<pre><code class="language-python">&gt;&gt;&gt; Car.objects.values('brand').annotate(Count('id'))
+&lt;QuerySet [{'brand': 'BMW', 'id__count': 1}, {'brand': 'Hyundai', 'id__count': 1}, {'brand': 'Kia', 'id__count': 1}, {'brand': 'Mercedes', 'id__count': 1}, {'brand': 'Toyota', 'id__count': 1}]&gt;
+</code></pre>
+<ul>
+<li>Отсортируйте всех автовладельцев по дате выдачи удостоверения</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt;Owner.objects.distinct().order_by('license__receiving_date')
+&lt;QuerySet [&lt;Owner: Иванов Иван&gt;, &lt;Owner: Петров Петр&gt;, &lt;Owner: Шишкина Анна&gt;, &lt;Owner: Кузнецов Илья&gt;, &lt;Owner: Смирнов Сергей&gt;, &lt;Owner: Федоров Федор&gt;]&gt;
+</code></pre>
+<h2 id="32">Практическая работа 3.2</h2>
+<h3 id="_3">Реализовать ендпоинты для добавления и просмотра скилов методом, описанным в пункте выше.</h3>
+<ul>
+<li>Добавление скилов</li>
+</ul>
 <p>POST <a href="http://127.0.0.1:8000/war/skills/create/">http://127.0.0.1:8000/war/skills/create/</a></p>
 <pre><code class="language-javascript">{
     &quot;title&quot;: &quot;write&quot;
@@ -786,7 +834,9 @@ License.objects.aggregate(Min('receiving_date'))
     &quot;Success&quot;: &quot;Skill 'write' created successfully.&quot;
 }
 </code></pre>
-<p>Просмотр скилов</p>
+<ul>
+<li>Просмотр скилов</li>
+</ul>
 <p>GET <a href="http://127.0.0.1:8000/war/warriors/">http://127.0.0.1:8000/war/warriors/</a></p>
 <pre><code class="language-javascript">{
     &quot;Skills&quot;: [
@@ -798,85 +848,82 @@ License.objects.aggregate(Min('receiving_date'))
 }
 </code></pre>
 <ul>
-<li>
-<p>Реализовать ендпоинты:</p>
-<ul>
-<li>
-<p>Вывод полной информации о всех войнах и их профессиях (в одном запросе).
-GET <a href="http://127.0.0.1:8000//war/warriors/professions/">http://127.0.0.1:8000//war/warriors/professions/</a>
-<code>javascript
-[
+<li>Вывод полной информации о всех войнах и их профессиях (в одном запросе).
+GET <a href="http://127.0.0.1:8000//war/warriors/professions/">http://127.0.0.1:8000//war/warriors/professions/</a></li>
+</ul>
+<pre><code class="language-javascript">[
     {
-        "id": 4,
-        "race": "d",
-        "name": "Updated Warrior Name",
-        "level": 5,
-        "profession": {
-            "id": 3,
-            "title": "студент",
-            "description": "обучается в университете"
+        &quot;id&quot;: 4,
+        &quot;race&quot;: &quot;d&quot;,
+        &quot;name&quot;: &quot;Updated Warrior Name&quot;,
+        &quot;level&quot;: 5,
+        &quot;profession&quot;: {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;студент&quot;,
+            &quot;description&quot;: &quot;обучается в университете&quot;
         }
     }
-]</code></p>
-</li>
-<li>
-<p>Вывод полной информации о всех войнах и их скилах (в одном запросе).
-GET <a href="http://127.0.0.1:8000//war/warriors/skills/">http://127.0.0.1:8000//war/warriors/skills/</a>
-<code>javascript
-[
+]
+</code></pre>
+<ul>
+<li>Вывод полной информации о всех войнах и их скилах (в одном запросе).
+GET <a href="http://127.0.0.1:8000//war/warriors/skills/">http://127.0.0.1:8000//war/warriors/skills/</a></li>
+</ul>
+<pre><code class="language-javascript">[
     {
-        "id": 4,
-        "race": "d",
-        "name": "Updated Warrior Name",
-        "level": 5,
-        "skill": []
+        &quot;id&quot;: 4,
+        &quot;race&quot;: &quot;d&quot;,
+        &quot;name&quot;: &quot;Updated Warrior Name&quot;,
+        &quot;level&quot;: 5,
+        &quot;skill&quot;: []
     }
-]</code></p>
-</li>
-<li>
-<p>Вывод полной информации о войне (по id), его профессиях и скилах.
-GET <a href="http://127.0.0.1:8000/war/warrior/4/">http://127.0.0.1:8000/war/warrior/4/</a>
-<code>javascript
-{
-    "id": 4,
-    "race": "d",
-    "name": "Updated Warrior Name",
-    "level": 5,
-    "profession": {
-        "id": 3,
-        "title": "студент",
-        "description": "обучается в университете"
+]
+</code></pre>
+<ul>
+<li>Вывод полной информации о войне (по id), его профессиях и скилах.
+GET <http://127.0.0.1:8000/war/warrior/\<int:pk>/></li>
+</ul>
+<pre><code class="language-javascript">{
+    &quot;id&quot;: 4,
+    &quot;race&quot;: &quot;d&quot;,
+    &quot;name&quot;: &quot;Updated Warrior Name&quot;,
+    &quot;level&quot;: 5,
+    &quot;profession&quot;: {
+        &quot;id&quot;: 3,
+        &quot;title&quot;: &quot;студент&quot;,
+        &quot;description&quot;: &quot;обучается в университете&quot;
     },
-    "skill": []
-}</code></p>
-</li>
+    &quot;skill&quot;: []
+}
+</code></pre>
+<ul>
 <li>Удаление война по id.
-DELETE <a href="http://127.0.0.1:8000/war/warrior/4/delete">http://127.0.0.1:8000/war/warrior/4/delete</a>
-<code>javascript
-{
-    "success": "Warrior deleted successfully"
-}</code></li>
+DELETE <http://127.0.0.1:8000/war/warrior/\<int:pk>/delete></li>
+</ul>
+<pre><code class="language-javascript">{
+    &quot;success&quot;: &quot;Warrior deleted successfully&quot;
+}
+</code></pre>
+<ul>
 <li>Редактирование информации о войне.
-PUT <a href="http://127.0.0.1:8000/war/warrior/5/update">http://127.0.0.1:8000/war/warrior/5/update</a>
-<code>javascript
-{
-    "level": 10
-}</code>
-<code>javascript
-{
-    "success": "Warrior updated successfully",
-    "data": {
-        "name": "Alex",
-        "level": 10,
-        "race": "s",
-        "profession": 3
+PUT <http://127.0.0.1:8000/war/warrior/\<int:pk>/update></li>
+</ul>
+<pre><code class="language-javascript">{
+    &quot;level&quot;: 10
+}
+</code></pre>
+<pre><code class="language-javascript">{
+    &quot;success&quot;: &quot;Warrior updated successfully&quot;,
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;Alex&quot;,
+        &quot;level&quot;: 10,
+        &quot;race&quot;: &quot;s&quot;,
+        &quot;profession&quot;: 3
     }
-}</code>
-3) Вариант №3</li>
-</ul>
-</li>
-</ul>
-<h3 id="_3">Эндпоинты:</h3>
+}
+</code></pre>
+<h2 id="no3">Вариант №3</h2>
+<h3 id="_4">Эндпоинты:</h3>
 <p>1) Просмотр списка учителей
 GET <a href="http://127.0.0.1:8000/school/teachers/">http://127.0.0.1:8000/school/teachers/</a> </p>
 <pre><code class="language-javascript">{
@@ -1171,7 +1218,7 @@ GET <a href="http://127.0.0.1:8000/school/schedule/10А/ср/15:00:00/">http://1
     }
 ]
 </code></pre>
-<h2 id="_4">Запуск сайта</h2>
+<h2 id="_5">Запуск сайта</h2>
 <pre><code class="language-python">python manage.py runserver
 </code></pre>
 
