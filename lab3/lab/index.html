@@ -766,18 +766,18 @@ License.objects.aggregate(Min('receiving_date'))
 <blockquote>
 <p>Owner.objects.distinct().order_by('license__receiving_date')
 <QuerySet [\<Owner: Иванов Иван>, \<Owner: Петров Петр>, \<Owner: Шишкина Анна>, \<Owner: Кузнецов Илья>, \<Owner: Смирнов Сергей>, \<Owner: Федоров Федор>]>
-```
-2) Практическая работа 3.2</p>
+```</p>
 </blockquote>
 </blockquote>
 </blockquote>
 </li>
-<li>Реализовать ендпоинты для добавления и просмотра скилов методом, описанным в пункте выше.</li>
 </ul>
 </li>
 </ul>
-<p>Добавление скилов
-POST <a href="http://127.0.0.1:8000/war/skills/create/">http://127.0.0.1:8000/war/skills/create/</a></p>
+<p>2) Практическая работа 3.2
+- Реализовать ендпоинты для добавления и просмотра скилов методом, описанным в пункте выше.</p>
+<p>Добавление скилов</p>
+<p>POST <a href="http://127.0.0.1:8000/war/skills/create/">http://127.0.0.1:8000/war/skills/create/</a></p>
 <pre><code class="language-javascript">{
     &quot;title&quot;: &quot;write&quot;
 }
@@ -786,8 +786,8 @@ POST <a href="http://127.0.0.1:8000/war/skills/create/">http://127.0.0.1:8000/wa
     &quot;Success&quot;: &quot;Skill 'write' created successfully.&quot;
 }
 </code></pre>
-<p>Просмотр скилов
-GET <a href="http://127.0.0.1:8000/war/warriors/">http://127.0.0.1:8000/war/warriors/</a></p>
+<p>Просмотр скилов</p>
+<p>GET <a href="http://127.0.0.1:8000/war/warriors/">http://127.0.0.1:8000/war/warriors/</a></p>
 <pre><code class="language-javascript">{
     &quot;Skills&quot;: [
         {
@@ -835,7 +835,7 @@ GET <a href="http://127.0.0.1:8000//war/warriors/skills/">http://127.0.0.1:8000/
 </li>
 <li>
 <p>Вывод полной информации о войне (по id), его профессиях и скилах.
-GET <http://127.0.0.1:8000/war/warrior/\<int:pk>/>
+GET <a href="http://127.0.0.1:8000/war/warrior/4/">http://127.0.0.1:8000/war/warrior/4/</a>
 <code>javascript
 {
     "id": 4,
@@ -851,13 +851,13 @@ GET <http://127.0.0.1:8000/war/warrior/\<int:pk>/>
 }</code></p>
 </li>
 <li>Удаление война по id.
-DELETE <http://127.0.0.1:8000/war/warrior/\<int:pk>/delete>
+DELETE <a href="http://127.0.0.1:8000/war/warrior/4/delete">http://127.0.0.1:8000/war/warrior/4/delete</a>
 <code>javascript
 {
     "success": "Warrior deleted successfully"
 }</code></li>
 <li>Редактирование информации о войне.
-PUT <http://127.0.0.1:8000/war/warrior/\<int:pk>/update>
+PUT <a href="http://127.0.0.1:8000/war/warrior/5/update">http://127.0.0.1:8000/war/warrior/5/update</a>
 <code>javascript
 {
     "level": 10
@@ -1032,19 +1032,19 @@ POST <a href="http://127.0.0.1:8000/school/add_grades/">http://127.0.0.1:8000/sc
 ]
 </code></pre>
 <p>6) Удаление уволившегося учителя
-DELETE <http://127.0.0.1:8000/school/delete_teacher/\<int:pk>/></p>
+DELETE <a href="http://127.0.0.1:8000/school/delete_teacher/2/">http://127.0.0.1:8000/school/delete_teacher/2/</a></p>
 <pre><code class="language-javascript">{
     &quot;message&quot;: &quot;Учитель с ID 2 успешно удалён.&quot;
 }
 </code></pre>
 <p>7) Удаление отчисленного ученика
-DELETE <http://127.0.0.1:8000/school/delete_student/\<int:pk>/></p>
+DELETE <a href="http://127.0.0.1:8000/school/delete_student/5/">http://127.0.0.1:8000/school/delete_student/5/</a></p>
 <pre><code class="language-javascript">{
     &quot;message&quot;: &quot;Ученик с ID 5 успешно удалён.&quot;
 }
 </code></pre>
 <p>8) Обновление данных об учителе 
-PUT <http://127.0.0.1:8000/school/update_teacher/\<int:pk>/></p>
+PUT <a href="http://127.0.0.1:8000/school/update_teacher/5/">http://127.0.0.1:8000/school/update_teacher/5/</a></p>
 <pre><code class="language-javascript">{
     &quot;cabinet&quot;: 2
 }
@@ -1060,7 +1060,7 @@ PUT <http://127.0.0.1:8000/school/update_teacher/\<int:pk>/></p>
 }
 </code></pre>
 <p>9) Обновление данных об ученике
-PUT <http://127.0.0.1:8000/school/update_student/\<int:pk>/></p>
+PUT <a href="http://127.0.0.1:8000/school/update_student/9/">http://127.0.0.1:8000/school/update_student/9/</a></p>
 <pre><code class="language-javascript">{
     &quot;first_name&quot;: &quot;Sasha&quot;
 }
@@ -1080,7 +1080,7 @@ PUT <http://127.0.0.1:8000/school/update_student/\<int:pk>/></p>
 }
 </code></pre>
 <p>10) Обновление четвертной оценки
-PUT <http://127.0.0.1:8000/school/update_grade/\<int:pk>/></p>
+PUT <a href="http://127.0.0.1:8000/school/update_grade/9/">http://127.0.0.1:8000/school/update_grade/9/</a></p>
 <pre><code class="language-javascript">{
     &quot;garde&quot;: 4
 }
@@ -1095,7 +1095,7 @@ PUT <http://127.0.0.1:8000/school/update_grade/\<int:pk>/></p>
 </code></pre>
 <p>11) Добавление урока в расписание</p>
 <p>12) Обновление данных о занятии
-PUT <http://127.0.0.1:8000/school/schedule/\<int:pk>/></p>
+PUT <a href="http://127.0.0.1:8000/school/schedule/3/">http://127.0.0.1:8000/school/schedule/3/</a></p>
 <pre><code class="language-javascript">{
     &quot;time&quot;: &quot;15:00:00&quot;
 }
@@ -1108,13 +1108,13 @@ PUT <http://127.0.0.1:8000/school/schedule/\<int:pk>/></p>
 }
 </code></pre>
 <p>13) Удаление занятия из расписания
-DELETE <http://127.0.0.1:8000/school/schedule/\<int:pk>/></p>
+DELETE <a href="http://127.0.0.1:8000/school/schedule/3/">http://127.0.0.1:8000/school/schedule/3/</a></p>
 <pre><code class="language-javascript">{
     &quot;detail&quot;: &quot;Запись в расписании успешно удалена.&quot;
 }
 </code></pre>
 <p>14) Получение отчёта об успеваемости класса
-GET <http://127.0.0.1:8000/school/class-report/\<int:class_id>/></p>
+GET <a href="http://127.0.0.1:8000/school/class-report/0/">http://127.0.0.1:8000/school/class-report/0/</a></p>
 <pre><code class="language-javascript">{
     &quot;name&quot;: &quot;10А&quot;,
     &quot;class_teacher&quot;: &quot;Алексей Казаков&quot;,
@@ -1140,29 +1140,28 @@ GET <a href="http://127.0.0.1:8000/school/teachers-per-subject/">http://127.0.0.
 ]
 </code></pre>
 <p>16) Нахождение количества учеников в классе
-GET <http://127.0.0.1:8000/school/students-per-class/\<str:class_name>/\<str:gender>/ ></p>
+GET <a href="http://127.0.0.1:8000/school/students-per-class/10А/f/ ">http://127.0.0.1:8000/school/students-per-class/10А/f/ </a></p>
 <pre><code class="language-javascript">{
     &quot;class&quot;: &quot;10А&quot;,
     &quot;gender&quot;: &quot;Женский&quot;,
     &quot;students_count&quot;: 1
 }
 </code></pre>
-<p>17) Нахожденеи количества профильных/непрофильных классов
-GET <http://127.0.0.1:8000/school/classrooms/\<str:is_profile>/></p>
+<p>17) Нахожденеи количества профильных/непрофильных классов</p>
 <p>GET <a href="http://127.0.0.1:8000/school/classrooms/profile/">http://127.0.0.1:8000/school/classrooms/profile/</a></p>
 <pre><code class="language-javascript">{
     &quot;classroom_type&quot;: &quot;Профильные&quot;,
     &quot;count&quot;: 4
 }
 </code></pre>
-<p>GET <http://127.0.0.1:8000/school/schedule/\<str:class_name>/\<str:day>/\<str:lesson_time>/></p>
+<p>GET <a href="http://127.0.0.1:8000/school/classrooms/basic/">http://127.0.0.1:8000/school/classrooms/basic/</a></p>
 <pre><code class="language-javascript">{
     &quot;classroom_type&quot;: &quot;Непрофильные&quot;,
     &quot;count&quot;: 1
 }
 </code></pre>
 <p>18) Какой предмет будет в заданном классе, в заданный день недели на заданном уроке
-GET <a href="http://127.0.0.1:8000/school/classrooms/basic/">http://127.0.0.1:8000/school/classrooms/basic/</a></p>
+GET <a href="http://127.0.0.1:8000/school/schedule/10А/ср/15:00:00/">http://127.0.0.1:8000/school/schedule/10А/ср/15:00:00/</a></p>
 <pre><code class="language-javascript">[
     {
         &quot;teacher&quot;: &quot;Иван Иванов&quot;,
