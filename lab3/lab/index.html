@@ -792,15 +792,14 @@ Ownership.objects.create(owner=owners[5], car=cars[3], beginning=&quot;2020-10-0
 <li>Вывод даты выдачи самого старшего водительского удостоверения</li>
 </ul>
 <pre><code class="language-python">&gt;&gt;&gt; from django.db.models import Min
-&gt;&gt;&gt; License.objects.aggregate(oldest_date=Min('receiving_date'))
-{'oldest_date': datetime.date(2015, 5, 20)}
+&gt;&gt;&gt; License.objects.aggregate(Min('receiving_date'))
+{'receiving_date__min': datetime.date(2015, 5, 20)}
 </code></pre>
 <ul>
 <li>Укажите самую позднюю дату владения машиной, имеющую какую-то из существующих моделей в вашей базе</li>
 </ul>
-<pre><code class="language-python">&gt;&gt;&gt; from django.db.models import Min
-&gt;&gt;&gt; License.objects.aggregate(Min('receiving_date'))
-{'receiving_date__min': datetime.date(2015, 5, 20)}
+<pre><code class="language-python">&gt;&gt;&gt; Ownership.objects.aggregate(Max('ending'))
+{'ending__max': datetime.date(2024, 10, 5)}
 </code></pre>
 <ul>
 <li>Выведите количество машин для каждого водителя</li>
