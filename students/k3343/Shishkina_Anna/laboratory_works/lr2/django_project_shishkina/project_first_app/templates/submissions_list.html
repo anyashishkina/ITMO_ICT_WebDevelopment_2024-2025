@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for submission in submissions %}
+            {% for submission in page_obj %}
                 <tr>
                     <td>{{ submission.hw.subject }}</td>
                     <td>{{ submission.student }}</td>
@@ -30,11 +30,28 @@
                 </tr>
             {% empty %}
                 <tr>
-                    <td colspan="6">Никто не сдал работы</td>
+                    <td colspan="4">Никто не сдал работы</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+
+    <!-- Пагинация -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}{% if request.GET.grade %}grade={{ request.GET.grade }}&{% endif %}page={{ page_obj.previous_page_number }}"> < </a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}{% if request.GET.grade %}grade={{ request.GET.grade }}&{% endif %}page={{ page_obj.next_page_number }}"> > </a>
+            {% endif %}
+        </span>
+    </div>
 
     <style>
         h2 {
@@ -59,6 +76,22 @@
 
         tbody tr:hover {
             background-color: #F5F5F5;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination .step-links a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .pagination .step-links .current {
+            margin: 0 5px;
+            font-weight: bold;
         }
     </style>
 {% endblock %}

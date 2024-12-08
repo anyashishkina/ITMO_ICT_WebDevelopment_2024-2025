@@ -8,10 +8,10 @@ class TeacherSerializer(serializers.ModelSerializer):
         fields = ['first_name', 'last_name', 'subject', 'leaded_class', 'cabinet']
 
 
-class StudentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Student
-        fields = ['first_name', 'last_name', 'gender', 'school_classes', 'grades']
+# class StudentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Student
+#         fields = ['first_name', 'last_name', 'gender', 'school_classes', 'grades']
 
 
 class GradeSerializer(serializers.ModelSerializer):
@@ -74,3 +74,36 @@ class ClassReportSerializer(serializers.ModelSerializer):
         Общее количества учеников в классе
         """
         return Student.objects.filter(school_classes=obj).count()
+
+
+class ClassSerializer(serializers.ModelSerializer):
+    """
+    Сериалайзер для класса
+    """
+    class Meta:
+        model = Class
+        fields = ['id', 'name', 'lead_teacher']
+
+
+class GradeSerializer(serializers.ModelSerializer):
+    """
+    Сериалайзер для оценок
+    """
+    subject = serializers.StringRelatedField()
+
+    class Meta:
+        model = Grade
+        fields = ['id', 'subject', 'year', 'quarter', 'grade']
+
+
+class StudentSerializer(serializers.ModelSerializer):
+    """
+    Сериалайзер для ученика
+    """
+    school_classes = ClassSerializer(many=True, source='school_classes.all')
+    grades = GradeSerializer(many=True, source='grade_set.all')
+
+    class Meta:
+        model = Student
+        fields = ['id', 'first_name', 'last_name', 'gender', 'school_classes', 'grades']
+

@@ -59,14 +59,16 @@ def submit_hw(request, hw_id):
         return render(request, 'submit_hw.html', {'form': form, 'hw': hw})
 
 def submissions_list(request):
+    current_user = request.user
+
     query = request.GET.get('search', '')
     grade_query = request.GET.get('grade', '')
-    submissions = Submission.objects.all()
+
+    submissions = Submission.objects.filter(student=current_user)
+
     if query:
         submissions = submissions.filter(
             hw__subject__icontains=query
-        ) | submissions.filter(
-            student__username__icontains=query
         ) | submissions.filter(
             submission_text__icontains=query
         )
@@ -76,6 +78,10 @@ def submissions_list(request):
             grade = int(grade_query)
             submissions = submissions.filter(grade=grade)
         except ValueError:
-            pass  
+            pass
 
-    return render(request, 'submissions_list.html', {'submissions': submissions})
+    paginator = Paginator(submissions, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'submissions_list.html', {'page_obj': page_obj, 'request': request})
