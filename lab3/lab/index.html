@@ -555,6 +555,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#djoser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Проверка djoser
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -562,6 +571,24 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модели данных:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Используемые сериалайзеры:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       Запуск сайта
     </span>
@@ -678,6 +705,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#djoser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Проверка djoser
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -685,6 +721,24 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модели данных:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Используемые сериалайзеры:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       Запуск сайта
     </span>
@@ -1217,7 +1271,225 @@ GET <a href="http://127.0.0.1:8000/school/schedule/10А/ср/15:00:00/">http://1
     }
 ]
 </code></pre>
-<h2 id="_5">Запуск сайта</h2>
+<h3 id="djoser">Проверка djoser</h3>
+<p><img alt="Авторизация юзера" src="../images/users.png" />
+<img alt="Домашние задания" src="../images/token.png" /></p>
+<h2 id="_5">Модели данных:</h2>
+<pre><code class="language-python">class Teacher(models.Model):
+    &quot;&quot;&quot;
+    Описание учителя
+    &quot;&quot;&quot;
+    first_name = models.CharField(max_length=120, verbose_name='Имя')
+    last_name = models.CharField(max_length=120, verbose_name='Фамилия')
+    subject = models.ManyToManyField('Subject', through='TeacherSubject', verbose_name='Предметы')
+    leaded_class = models.ForeignKey(
+        'Class', 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True, 
+        verbose_name='Классный руководитель',
+        related_name='led_by_teacher',
+        limit_choices_to={'lead_teacher__isnull': False}
+    )
+    cabinet = models.ForeignKey('Classroom', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Закрепленный кабинет')
+
+    def __str__(self):
+        return f&quot;{self.first_name} {self.last_name}&quot;
+
+
+class Subject(models.Model):
+    &quot;&quot;&quot;
+    Описание предмета
+    &quot;&quot;&quot;
+    title = models.CharField(max_length=120, verbose_name='Наименование предмета')
+
+    def __str__(self):
+        return self.title
+
+
+class TeacherSubject(models.Model):
+    &quot;&quot;&quot;
+    Описание предметов, которые преподавал учитель в определенный период
+    &quot;&quot;&quot;
+    teacher = models.ForeignKey('Teacher', on_delete=models.CASCADE, verbose_name='Учитель')
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, verbose_name='Предмет')
+    start_date = models.DateField(verbose_name='Дата начала преподавания')
+    end_date = models.DateField(verbose_name='Дата окончания преподавания')
+
+
+class Class(models.Model):
+    &quot;&quot;&quot;
+    Описание класса
+    &quot;&quot;&quot;
+    name = models.CharField(max_length=50, verbose_name='Класс')
+    lead_teacher = models.ForeignKey(
+        'Teacher',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='classes',
+        verbose_name='Классный руководитель'
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class Student(models.Model):
+    &quot;&quot;&quot;
+    Описание ученика
+    &quot;&quot;&quot;
+    gender_types = (
+        ('m', 'Мужской'),
+        ('f', 'Женский'),
+    )
+    gender = models.CharField(max_length=1, choices=gender_types, verbose_name='Пол')
+    first_name = models.CharField(max_length=120, verbose_name='Имя')
+    last_name = models.CharField(max_length=120, verbose_name='Фамилия')
+    school_classes = models.ManyToManyField('Class', through='StudentClass', verbose_name='Классы')
+    grades = models.ManyToManyField('Subject', through='Grade', verbose_name='Оценки')
+
+    def __str__(self):
+        return f&quot;{self.first_name} {self.last_name}&quot;
+
+
+class StudentClass(models.Model):
+    &quot;&quot;&quot;
+    Ассоциация между учеником и классом с периодом обучения
+    &quot;&quot;&quot;
+    student = models.ForeignKey('Student', on_delete=models.CASCADE, verbose_name='Ученик')
+    school_class = models.ForeignKey('Class', on_delete=models.CASCADE, verbose_name='Класс')
+    start_date = models.DateField(verbose_name='Дата начала обучения')
+    end_date = models.DateField(verbose_name='Дата окончания обучения')
+
+    def __str__(self):
+        return f&quot;{self.student} - {self.school_class} ({self.start_date} - {self.end_date})&quot;
+
+
+class Grade(models.Model):
+    &quot;&quot;&quot;
+    Описание оценок ученика
+    &quot;&quot;&quot;
+    student = models.ForeignKey('Student', on_delete=models.CASCADE, verbose_name='Ученик')
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, verbose_name='Предмет')
+    year = models.IntegerField(verbose_name='Учебный год')
+    quarter = models.IntegerField(verbose_name='Четверть')
+    grade = models.IntegerField(verbose_name='Оценка')
+
+    def __str__(self):
+        return f&quot;{self.student} - {self.subject.title} - {self.year} - Четверть {self.quarter} - {self.grade}&quot;
+
+
+class Classroom(models.Model):
+    &quot;&quot;&quot;
+    Описание кабинета
+    &quot;&quot;&quot;
+    number = models.CharField(max_length=10, verbose_name='Номер кабинета')
+    is_profile = models.BooleanField(default=False, verbose_name='Профильный кабинет')
+
+    def __str__(self):
+        profile_status = &quot;Профильный&quot; if self.is_profile else &quot;Непрофильный&quot;
+        return f&quot;Кабинет {self.number} - {profile_status}&quot;
+
+
+class Schedule(models.Model):
+    &quot;&quot;&quot;
+    Описание расписания занятий
+    &quot;&quot;&quot;
+    teacher = models.ForeignKey('Teacher', on_delete=models.CASCADE, verbose_name='Учитель')
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, verbose_name='Предмет')
+    class_group = models.ForeignKey('Class', on_delete=models.CASCADE, verbose_name='Класс')
+    classroom = models.ForeignKey('Classroom', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Кабинет')
+    day_of_week = models.CharField(max_length=50, verbose_name='День недели')
+    time = models.TimeField(verbose_name='Время занятия')
+
+    def __str__(self):
+        classroom_info = f&quot;Кабинет {self.classroom}&quot; if self.classroom else &quot;Кабинет не назначен&quot;
+        return f&quot;{self.teacher} - {self.subject.title} - {self.class_group} - {classroom_info} - {self.day_of_week} - {self.time}&quot;
+</code></pre>
+<h2 id="_6">Используемые сериалайзеры:</h2>
+<pre><code class="language-python">class TeacherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Teacher
+        fields = ['first_name', 'last_name', 'subject', 'leaded_class', 'cabinet']
+
+
+class GradeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Grade
+        fields = ['student', 'subject', 'year', 'quarter', 'grade']
+
+
+class ScheduleSerializer(serializers.ModelSerializer):
+    teacher = serializers.StringRelatedField() 
+    subject = serializers.StringRelatedField()
+    classroom = serializers.StringRelatedField() 
+
+    class Meta:
+        model = Schedule
+        fields = ['teacher', 'subject', 'classroom', 'time']
+
+
+class ClassReportSerializer(serializers.ModelSerializer):
+    class_teacher = serializers.CharField(source='lead_teacher.__str__', read_only=True)
+    subject_grades = serializers.SerializerMethodField()
+    average_class_grade = serializers.SerializerMethodField()
+    total_students = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Class
+        fields = ['name', 'class_teacher', 'subject_grades', 'average_class_grade', 'total_students']
+
+    def get_subject_grades(self, obj):
+        grades = Grade.objects.filter(student__school_classes=obj)
+        subject_avg = {}
+
+        for grade in grades:
+            if grade.subject.title not in subject_avg:
+                subject_avg[grade.subject.title] = []
+            subject_avg[grade.subject.title].append(grade.grade)
+
+        subject_averages = {subject: sum(grades_list) / len(grades_list) for subject, grades_list in subject_avg.items()}
+
+        return subject_averages
+
+    def get_average_class_grade(self, obj):
+        grades = Grade.objects.filter(student__school_classes=obj)
+        total_grade = sum([grade.grade for grade in grades])
+        total_count = len(grades)
+
+        if total_count == 0:
+            return 0 
+
+        return total_grade / total_count
+
+    def get_total_students(self, obj):
+        return Student.objects.filter(school_classes=obj).count()
+
+
+class ClassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Class
+        fields = ['id', 'name', 'lead_teacher']
+
+
+class GradeSerializer(serializers.ModelSerializer):
+    subject = serializers.StringRelatedField()
+
+    class Meta:
+        model = Grade
+        fields = ['id', 'subject', 'year', 'quarter', 'grade']
+
+
+class StudentSerializer(serializers.ModelSerializer):
+    school_classes = ClassSerializer(many=True, source='school_classes.all')
+    grades = GradeSerializer(many=True, source='grade_set.all')
+
+    class Meta:
+        model = Student
+        fields = ['id', 'first_name', 'last_name', 'gender', 'school_classes', 'grades']
+</code></pre>
+<h2 id="_7">Запуск сайта</h2>
 <pre><code class="language-python">python manage.py runserver
 </code></pre>
 
